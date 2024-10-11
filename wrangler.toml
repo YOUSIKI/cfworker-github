@@ -1,8 +1,10 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "cfworker-github"
+name = "github"
 main = "src/index.js"
 compatibility_date = "2024-10-04"
 compatibility_flags = ["nodejs_compat"]
+
+routes = [{ pattern = "github.siki.moe", custom_domain = true }]
 
 # Workers Logs
 # Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
@@ -14,8 +16,8 @@ enabled = true
 # If you are running back-end logic in a Worker, running it closer to your back-end infrastructure
 # rather than the end user may result in better performance.
 # Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
-# [placement]
-# mode = "smart"
+[placement]
+mode = "smart"
 
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Docs:
